@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mogulog/views/pages/home_page.dart';
+import 'package:mogulog/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: HomePage(),
+      home: WidgetTree(),
     );
   }
 }
