@@ -31,37 +31,61 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '1250',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 40,
+                                ),
+                              ),
+                              Text(
+                                'calories left',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'O',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 100,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Card(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '1250',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 40,
-                              ),
-                            ),
-                            Text(
-                              'calories left',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
+                          children: [Text('O'), Text('Protein left')],
                         ),
-                        Text(
-                          'O',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 100,
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('O'), Text('Fats left')],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('O'), Text('Carbs left')],
                         ),
                       ],
                     ),
                   ),
                 ),
-                Expanded(flex: 2, child: Container(color: Colors.green)),
                 Expanded(flex: 4, child: Container(color: Colors.yellow)),
               ],
             ),
