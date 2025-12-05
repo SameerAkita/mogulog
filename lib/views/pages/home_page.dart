@@ -86,7 +86,15 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(flex: 4, child: Container(color: Colors.yellow)),
+                Expanded(
+                  flex: 4,
+                  child: Column(
+                    children: [
+                      Text('Recently Uploaded'),
+                      Container(color: Colors.teal, height: 100),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
