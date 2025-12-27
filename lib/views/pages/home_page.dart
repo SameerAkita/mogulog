@@ -87,13 +87,19 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 flex: 4,
-                child: Column(
-                  children: [
-                    Text('Recently Uploaded'),
-                    Container(color: Colors.teal, height: 100),
-                    Container(color: Colors.red, height: 100),
-                    Container(color: Colors.blue, height: 100), // need to make scrollable
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Text('Recently Uploaded'),
+                      Container(color: Colors.teal, height: 100),
+                      Container(color: Colors.red, height: 100),
+                      Container(color: Colors.blue, height: 100),
+                      Container(
+                        color: Colors.black,
+                        height: 100,
+                      ), // need to make scrollable
+                    ],
+                  ),
                 ),
               ),
             ],
