@@ -91,6 +91,8 @@ class HomePage extends StatelessWidget {
                   children: [
                     Text('Recently Uploaded'),
                     Container(color: Colors.teal, height: 100),
+                    Container(color: Colors.red, height: 100),
+                    Container(color: Colors.blue, height: 100), // need to make scrollable
                   ],
                 ),
               ),
