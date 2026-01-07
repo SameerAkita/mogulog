@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/theme/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                             valueColor: AlwaysStoppedAnimation<Color>(
                               Colors.black,
                             ),
-                            backgroundColor: Colors.grey,
+                            backgroundColor: AppColors.lightgrey,
                             strokeWidth: 12,
                             strokeCap: StrokeCap.round,
                           ),
