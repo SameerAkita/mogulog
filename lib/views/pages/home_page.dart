@@ -78,15 +78,81 @@ class HomePage extends StatelessWidget {
                     children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('O'), Text('Protein left')],
+                        children: [
+                          Text(
+                            '58g',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 24,
+                            ),
+                          ),
+                          Text('Protein left'),
+                          SizedBox(
+                            height: 60,
+                            width: 60,
+                            child: CircularProgressIndicator(
+                              value: 0.7,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                AppColors.protein,
+                              ),
+                              backgroundColor: AppColors.lightgrey,
+                              strokeWidth: 7,
+                              strokeCap: StrokeCap.round,
+                            ),
+                          ),
+                        ],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('O'), Text('Fats left')],
+                        children: [
+                          Text(
+                            '30g',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 24,
+                            ),
+                          ),
+                          Text('Fats left'),
+                          SizedBox(
+                            height: 60,
+                            width: 60,
+                            child: CircularProgressIndicator(
+                              value: 0.6,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                AppColors.fats,
+                              ),
+                              backgroundColor: AppColors.lightgrey,
+                              strokeWidth: 7,
+                              strokeCap: StrokeCap.round,
+                            ),
+                          ),
+                        ],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('O'), Text('Carbs left')],
+                        children: [
+                          Text(
+                            '70g',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 24,
+                            ),
+                          ),
+                          Text('Carbs left'),
+                          SizedBox(
+                            height: 60,
+                            width: 60,
+                            child: CircularProgressIndicator(
+                              value: 0.5,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                AppColors.carbs,
+                              ),
+                              backgroundColor: AppColors.lightgrey,
+                              strokeWidth: 7,
+                              strokeCap: StrokeCap.round,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
