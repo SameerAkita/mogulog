@@ -51,11 +51,17 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(
-                          'O',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 100,
+                        SizedBox(
+                          height: 100.0,
+                          width: 100.0,
+                          child: CircularProgressIndicator(
+                            value: 0.8,
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.black,
+                            ),
+                            backgroundColor: Colors.grey,
+                            strokeWidth: 12,
+                            strokeCap: StrokeCap.round,
                           ),
                         ),
                       ],
@@ -88,8 +94,15 @@ class HomePage extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Recently Uploaded'),
+                    Text(
+                      'Recently Uploaded',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
                     Expanded(
                       child: SingleChildScrollView(
                         child: Column(
