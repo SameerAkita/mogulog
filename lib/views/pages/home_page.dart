@@ -125,10 +125,33 @@ class HomePage extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            RecentUploadWidget(),
-                            RecentUploadWidget(),
-                            RecentUploadWidget(),
-                            RecentUploadWidget(),
+                            RecentUploadWidget(
+                              title: 'Oyakodon',
+                              image: 'assets/images/oyakodon.jpg',
+                              calories: 800,
+                              protein: 30,
+                              fats: 20,
+                              carbs: 50,
+                              time: '12:00',
+                            ),
+                            RecentUploadWidget(
+                              title: 'Oyakodon',
+                              image: 'assets/images/oyakodon.jpg',
+                              calories: 800,
+                              protein: 30,
+                              fats: 20,
+                              carbs: 50,
+                              time: '12:00',
+                            ),
+                            RecentUploadWidget(
+                              title: 'Oyakodon',
+                              image: 'assets/images/oyakodon.jpg',
+                              calories: 800,
+                              protein: 30,
+                              fats: 20,
+                              carbs: 50,
+                              time: '12:00',
+                            ),
                           ],
                         ),
                       ),
