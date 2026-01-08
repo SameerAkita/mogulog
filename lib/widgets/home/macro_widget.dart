@@ -26,7 +26,7 @@ class MacroWidget extends StatelessWidget {
           children: [
             Text(
               amount,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               textHeightBehavior: const TextHeightBehavior(
                 applyHeightToFirstAscent: false,
                 applyHeightToLastDescent: false,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
-import 'package:mogulog/widgets/macro_widget.dart';
+import 'package:mogulog/widgets/home/macro_widget.dart';
+import 'package:mogulog/widgets/home/recent_upload_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,10 +23,10 @@ class HomePage extends StatelessWidget {
                       'mogulog',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
+                        fontSize: 36,
                       ),
                     ),
-                    Icon(Icons.notifications_none_rounded, size: 40),
+                    Icon(Icons.notifications_none_rounded, size: 36),
                   ],
                 ),
               ),
@@ -39,12 +40,13 @@ class HomePage extends StatelessWidget {
                       children: [
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '1250',
+                              '2250',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 40,
+                                fontSize: 48,
                               ),
                             ),
                             Text(
@@ -71,6 +73,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 8),
               Expanded(
                 flex: 2,
                 child: Row(
@@ -105,6 +108,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 8),
               Expanded(
                 flex: 4,
                 child: Column(
@@ -114,17 +118,17 @@ class HomePage extends StatelessWidget {
                       'Recently Uploaded',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 20,
                       ),
                     ),
                     Expanded(
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            Container(color: Colors.teal, height: 100),
-                            Container(color: Colors.red, height: 100),
-                            Container(color: Colors.blue, height: 100),
-                            Container(color: Colors.black, height: 100),
+                            RecentUploadWidget(),
+                            RecentUploadWidget(),
+                            RecentUploadWidget(),
+                            RecentUploadWidget(),
                           ],
                         ),
                       ),
