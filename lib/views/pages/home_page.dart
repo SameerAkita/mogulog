@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/macro_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -72,90 +73,36 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 flex: 2,
-                child: Card(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '58g',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24,
-                            ),
-                          ),
-                          Text('Protein left'),
-                          SizedBox(
-                            height: 60,
-                            width: 60,
-                            child: CircularProgressIndicator(
-                              value: 0.7,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                AppColors.protein,
-                              ),
-                              backgroundColor: AppColors.lightgrey,
-                              strokeWidth: 7,
-                              strokeCap: StrokeCap.round,
-                            ),
-                          ),
-                        ],
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: MacroWidget(
+                        amount: '50g',
+                        title: 'Protein',
+                        value: 0.8,
+                        color: AppColors.protein,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '30g',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24,
-                            ),
-                          ),
-                          Text('Fats left'),
-                          SizedBox(
-                            height: 60,
-                            width: 60,
-                            child: CircularProgressIndicator(
-                              value: 0.6,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                AppColors.fats,
-                              ),
-                              backgroundColor: AppColors.lightgrey,
-                              strokeWidth: 7,
-                              strokeCap: StrokeCap.round,
-                            ),
-                          ),
-                        ],
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: MacroWidget(
+                        amount: '30g',
+                        title: 'Fats',
+                        value: 0.7,
+                        color: AppColors.fats,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '70g',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24,
-                            ),
-                          ),
-                          Text('Carbs left'),
-                          SizedBox(
-                            height: 60,
-                            width: 60,
-                            child: CircularProgressIndicator(
-                              value: 0.5,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                AppColors.carbs,
-                              ),
-                              backgroundColor: AppColors.lightgrey,
-                              strokeWidth: 7,
-                              strokeCap: StrokeCap.round,
-                            ),
-                          ),
-                        ],
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: MacroWidget(
+                        amount: '50g',
+                        title: 'Carbs',
+                        value: 0.6,
+                        color: AppColors.carbs,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
