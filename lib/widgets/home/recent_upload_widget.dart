@@ -5,9 +5,9 @@ class RecentUploadWidget extends StatelessWidget {
   final String title;
   final String image;
   final int calories;
-  final double protein;
-  final double fats;
-  final double carbs;
+  final int protein;
+  final int fats;
+  final int carbs;
   final String time;
 
   const RecentUploadWidget({
@@ -28,7 +28,7 @@ class RecentUploadWidget extends StatelessWidget {
       height: 125,
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: AppColors.lightgrey,
+        color: Color.fromARGB(255, 231, 231, 231),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
@@ -45,35 +45,45 @@ class RecentUploadWidget extends StatelessWidget {
               child: Image.asset(image, fit: BoxFit.cover),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsetsGeometry.symmetric(horizontal: 8),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(time),
+                    ],
                   ),
+                  SizedBox(height: 8),
                   Row(
                     children: [
-                      Icon(Icons.local_fire_department),
+                      Icon(Icons.local_fire_department, size: 20),
                       Text('$calories calories'),
                     ],
                   ),
+                  SizedBox(height: 8),
                   Row(
                     children: [
-                      Text('Protein'),
-                      Icon(Icons.water_drop),
-                      Text('fats'),
-                      Text('carbs'),
+                      Icon(Icons.egg_alt, size: 20, color: AppColors.protein),
+                      Text('${protein}g'),
+                      Text(' '),
+                      Icon(Icons.water_drop, size: 20, color: AppColors.fats),
+                      Text('${fats}g'),
+                      Text(' '),
+                      Icon(Icons.cookie, size: 20, color: AppColors.carbs),
+                      Text('${carbs}g'),
                     ],
                   ),
                 ],
               ),
-              Text('time'),
-            ],
+            ),
           ),
         ],
       ),
