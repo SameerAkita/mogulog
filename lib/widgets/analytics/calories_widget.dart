@@ -56,23 +56,52 @@ class CaloriesWidget extends StatelessWidget {
                                         flex: 1,
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(15),
-                                              topRight: Radius.circular(15),
+                                            borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(15),
                                             ),
-                                            color: Colors.amber,
+                                            border: Border.all(
+                                              width: 1,
+                                              color: AppColors.lightgrey,
+                                            ),
                                           ),
                                         ),
                                       ),
                                       Expanded(
-                                        flex: 4,
+                                        flex: 5,
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(15),
-                                              bottomRight: Radius.circular(15),
+                                            borderRadius: BorderRadius.vertical(
+                                              bottom: Radius.circular(15),
                                             ),
-                                            color: Colors.red,
+                                            border: Border.all(
+                                              width: 1,
+                                              color: AppColors.lightgrey,
+                                            ),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 9,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.vertical(
+                                                          bottom:
+                                                              Radius.circular(
+                                                                15,
+                                                              ),
+                                                        ),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -83,12 +112,17 @@ class CaloriesWidget extends StatelessWidget {
                               ],
                             ),
                           ),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.blue)),
-                          SizedBox(width: 2),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.green)),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.yellow)),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.pink)),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.grey)),
+                          SizedBox(width: 4),
                           Expanded(child: Container(color: Colors.green)),
                         ],
                       ),
