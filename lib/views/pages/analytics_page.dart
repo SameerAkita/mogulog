@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/analytics/time_range_button.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});
@@ -8,8 +9,11 @@ class AnalyticsPage extends StatefulWidget {
   State<AnalyticsPage> createState() => _AnalyticsPageState();
 }
 
+enum TimeRange { week, oneMonth, sixMonths, allTime }
+
+TimeRange selectedRange = TimeRange.week;
+
 class _AnalyticsPageState extends State<AnalyticsPage> {
-  Color color = Colors.blue;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,42 +34,51 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            padding: EdgeInsets.symmetric(vertical: 2),
-
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                InkWell(
-                                  child: Container(
-                                    color: color,
-                                    child: Text(
-                                      '1 Week',
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                  ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: TimeRangeButton(
+                                  label: '1 Week',
+                                  selected: selectedRange == TimeRange.week,
                                   onTap: () {
                                     setState(() {
-                                      color = Colors.red;
+                                      selectedRange = TimeRange.week;
                                     });
                                   },
                                 ),
-                                Text('1 Month', style: TextStyle(fontSize: 18)),
-                                Text(
-                                  '6 Months',
-                                  style: TextStyle(fontSize: 18),
+                              ),
+                              SizedBox(width: 4),
+                              Expanded(
+                                flex: 1,
+                                child: TimeRangeButton(
+                                  label: '1 Month',
+                                  selected: selectedRange == TimeRange.oneMonth,
+                                  onTap: () {
+                                    setState(() {
+                                      selectedRange = TimeRange.oneMonth;
+                                    });
+                                  },
                                 ),
-                                Text(
-                                  'All time',
-                                  style: TextStyle(fontSize: 18),
+                              ),
+
+                              SizedBox(width: 4),
+                              Expanded(
+                                flex: 1,
+                                child: TimeRangeButton(
+                                  label: 'All time',
+                                  selected: selectedRange == TimeRange.allTime,
+                                  onTap: () {
+                                    setState(() {
+                                      selectedRange = TimeRange.allTime;
+                                    });
+                                  },
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
+
                           SizedBox(height: 8),
                           Expanded(
                             child: Container(
