@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/analytics/calories_widget.dart';
+import 'package:mogulog/widgets/analytics/nutrients_widget.dart';
+import 'package:mogulog/widgets/analytics/weight_widget.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});
@@ -17,80 +20,12 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
           widthFactor: 0.9,
           child: Column(
             children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Weight',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Expanded(child: Container(color: Colors.green)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              WeightWidget(),
               SizedBox(height: 12),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Calories',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Expanded(child: Container(color: Colors.red)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              CaloriesWidget(),
               SizedBox(height: 12),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Nutrients',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Expanded(child: Container(color: Colors.blue)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              NutrientsWidget(),
+              SizedBox(height: 12),
             ],
           ),
         ),
