@@ -19,7 +19,7 @@ class CaloriesWidget extends StatelessWidget {
             children: [
               Text(
                 'Calories',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Expanded(
                 child: Row(
@@ -29,8 +29,8 @@ class CaloriesWidget extends StatelessWidget {
                         left: 6,
                       ), // padding counteracts the circularprogressindicator's stroke width
                       child: SizedBox(
-                        height: 110.0,
-                        width: 110.0,
+                        height: 100.0,
+                        width: 100.0,
                         child: CircularProgressIndicator(
                           value: 0.8,
                           valueColor: AlwaysStoppedAnimation<Color>(
@@ -40,6 +40,57 @@ class CaloriesWidget extends StatelessWidget {
                           strokeWidth: 10,
                           strokeCap: StrokeCap.round,
                         ),
+                      ),
+                    ),
+                    SizedBox(width: 18),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(15),
+                                              topRight: Radius.circular(15),
+                                            ),
+                                            color: Colors.amber,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 4,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(15),
+                                              bottomRight: Radius.circular(15),
+                                            ),
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Text('M'),
+                              ],
+                            ),
+                          ),
+                          Expanded(child: Container(color: Colors.blue)),
+                          SizedBox(width: 2),
+                          Expanded(child: Container(color: Colors.green)),
+                          Expanded(child: Container(color: Colors.yellow)),
+                          Expanded(child: Container(color: Colors.pink)),
+                          Expanded(child: Container(color: Colors.grey)),
+                          Expanded(child: Container(color: Colors.green)),
+                        ],
                       ),
                     ),
                   ],

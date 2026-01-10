@@ -18,7 +18,7 @@ class NutrientsWidget extends StatelessWidget {
             children: [
               Text(
                 'Nutrients',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Expanded(child: Container(color: Colors.blue)),
             ],

@@ -17,7 +17,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
     return SafeArea(
       child: Center(
         child: FractionallySizedBox(
-          widthFactor: 0.9,
+          widthFactor: 0.95,
           child: Column(
             children: [
               WeightWidget(),
