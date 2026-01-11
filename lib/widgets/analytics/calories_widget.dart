@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
-import 'package:mogulog/widgets/analytics/calories_bar_widget.dart';
+import 'package:mogulog/widgets/analytics/calories_graph_bar_widget.dart';
 
 class CaloriesWidget extends StatelessWidget {
   const CaloriesWidget({super.key});
@@ -47,19 +47,19 @@ class CaloriesWidget extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'S'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'M'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'T'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'W'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'T'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'F'),
                           SizedBox(width: 8),
-                          CaloriesBarWidget(),
+                          CaloriesGraphBarWidget(day: 'S'),
                         ],
                       ),
                     ),
