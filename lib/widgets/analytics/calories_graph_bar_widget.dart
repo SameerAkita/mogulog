@@ -3,8 +3,17 @@ import 'package:mogulog/theme/app_colors.dart';
 
 class CaloriesGraphBarWidget extends StatelessWidget {
   final String day;
+  final int calories;
+  final double basePercent;
+  final double overflowPercent;
 
-  const CaloriesGraphBarWidget({super.key, required this.day});
+  const CaloriesGraphBarWidget({
+    super.key,
+    required this.day,
+    required this.calories,
+    required this.basePercent,
+    required this.overflowPercent,
+  });
   final double radiusSize = 7;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,7 @@ class CaloriesGraphBarWidget extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: FractionallySizedBox(
-                        heightFactor: 0.5,
+                        heightFactor: overflowPercent,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.red,
@@ -54,7 +63,7 @@ class CaloriesGraphBarWidget extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: FractionallySizedBox(
-                        heightFactor: 0.7,
+                        heightFactor: basePercent,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.green,

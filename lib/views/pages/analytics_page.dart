@@ -13,9 +13,11 @@ class AnalyticsPage extends StatefulWidget {
 }
 
 class _AnalyticsPageState extends State<AnalyticsPage> {
-  late List<int> tempCalories = [1900, 2100, 2300, 1700, 2000, 1800, 2200];
+  late List<int> tempCalories = [1900, 2100, 2500, 1700, 2000, 1800, 2200];
   late int tempGoalCalories = 2000;
-  late List<double> caloriesPercentage = tempCalories.map((c) => (c / tempGoalCalories).clamp(0.0, 1.0)).toList();
+  late List<double> caloriesPercentage = tempCalories
+      .map((c) => (c / tempGoalCalories))
+      .toList();
 
   @override
   Widget build(BuildContext context) {
