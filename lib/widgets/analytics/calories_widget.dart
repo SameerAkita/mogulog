@@ -3,7 +3,15 @@ import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/analytics/calories_graph_bar_widget.dart';
 
 class CaloriesWidget extends StatelessWidget {
-  const CaloriesWidget({super.key});
+  final List<int> calories;
+  final int goalCalories;
+  final List<double> caloriesPercentage;
+  const CaloriesWidget({
+    super.key,
+    required this.calories,
+    required this.goalCalories,
+    required this.caloriesPercentage,
+  });
 
   @override
   Widget build(BuildContext context) {

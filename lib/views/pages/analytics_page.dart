@@ -1,5 +1,6 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
-import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/analytics/calories_widget.dart';
 import 'package:mogulog/widgets/analytics/nutrients_widget.dart';
 import 'package:mogulog/widgets/analytics/weight_widget.dart';
@@ -12,6 +13,10 @@ class AnalyticsPage extends StatefulWidget {
 }
 
 class _AnalyticsPageState extends State<AnalyticsPage> {
+  late List<int> tempCalories = [1900, 2100, 2300, 1700, 2000, 1800, 2200];
+  late int tempGoalCalories = 2000;
+  late List<double> caloriesPercentage = tempCalories.map((c) => (c / tempGoalCalories).clamp(0.0, 1.0)).toList();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,7 +27,11 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
             children: [
               WeightWidget(),
               SizedBox(height: 12),
-              CaloriesWidget(),
+              CaloriesWidget(
+                calories: tempCalories,
+                goalCalories: tempGoalCalories,
+                caloriesPercentage: caloriesPercentage,
+              ),
               SizedBox(height: 12),
               NutrientsWidget(),
               SizedBox(height: 12),
