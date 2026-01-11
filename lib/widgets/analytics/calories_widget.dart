@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/analytics/calories_bar_widget.dart';
 
 class CaloriesWidget extends StatelessWidget {
   const CaloriesWidget({super.key});
@@ -46,84 +47,19 @@ class CaloriesWidget extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        flex: 1,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(15),
-                                            ),
-                                            border: Border.all(
-                                              width: 1,
-                                              color: AppColors.lightgrey,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 5,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.vertical(
-                                              bottom: Radius.circular(15),
-                                            ),
-                                            border: Border.all(
-                                              width: 1,
-                                              color: AppColors.lightgrey,
-                                            ),
-                                          ),
-                                          child: Column(
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: Container(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 9,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.vertical(
-                                                          bottom:
-                                                              Radius.circular(
-                                                                15,
-                                                              ),
-                                                        ),
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Text('M'),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.blue)),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.green)),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.yellow)),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.pink)),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.grey)),
-                          SizedBox(width: 4),
-                          Expanded(child: Container(color: Colors.green)),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
+                          SizedBox(width: 8),
+                          CaloriesBarWidget(),
                         ],
                       ),
                     ),
