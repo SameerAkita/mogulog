@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:mogulog/widgets/analytics/calories_widget.dart';
 import 'package:mogulog/widgets/analytics/nutrients_widget.dart';

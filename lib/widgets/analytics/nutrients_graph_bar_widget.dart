@@ -3,9 +3,9 @@ import 'package:mogulog/theme/app_colors.dart';
 
 class NutrientsGraphBarWidget extends StatelessWidget {
   final String day;
-  final int proteinRatio;
-  final int fatsRatio;
-  final int carbsRatio;
+  final double proteinRatio;
+  final double fatsRatio;
+  final double carbsRatio;
 
   const NutrientsGraphBarWidget({
     super.key,
