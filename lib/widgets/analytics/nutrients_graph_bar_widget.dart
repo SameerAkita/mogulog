@@ -3,8 +3,17 @@ import 'package:mogulog/theme/app_colors.dart';
 
 class NutrientsGraphBarWidget extends StatelessWidget {
   final String day;
+  final int proteinRatio;
+  final int fatsRatio;
+  final int carbsRatio;
 
-  const NutrientsGraphBarWidget({super.key, required this.day});
+  const NutrientsGraphBarWidget({
+    super.key,
+    required this.day,
+    required this.proteinRatio,
+    required this.fatsRatio,
+    required this.carbsRatio,
+  });
 
   final double radiusSize = 7;
 
@@ -19,28 +28,44 @@ class NutrientsGraphBarWidget extends StatelessWidget {
                 color: AppColors.lightgrey,
                 borderRadius: BorderRadius.circular(radiusSize),
               ),
-              child: Column(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
-                  Expanded(
-                    flex: 2,
+                  FractionallySizedBox(
+                    heightFactor: 1,
+                    alignment: Alignment.topCenter,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: AppColors.protein,
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(radiusSize),
+                          bottom: Radius.circular(radiusSize),
                         ),
+                        color: AppColors.protein,
                       ),
                     ),
                   ),
-                  Expanded(flex: 1, child: Container(color: AppColors.fats)),
-                  Expanded(
-                    flex: 2,
+                  FractionallySizedBox(
+                    heightFactor: 0.66,
+                    alignment: Alignment.bottomCenter,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: AppColors.carbs,
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(radiusSize),
                         ),
+                        color: AppColors.fats,
+                      ),
+                    ),
+                  ),
+
+                  FractionallySizedBox(
+                    heightFactor: 0.33,
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(radiusSize),
+                        ),
+                        color: AppColors.carbs,
                       ),
                     ),
                   ),
