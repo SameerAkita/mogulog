@@ -30,7 +30,7 @@ class RecentUploadWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return FoodItemPage();
+              return FoodItemPage(image: image);
             },
           ),
         );
