@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/food_item/macro_card_widget.dart';
 
 class FoodItemPage extends StatelessWidget {
   final String image;
@@ -39,7 +40,7 @@ class FoodItemPage extends StatelessWidget {
 
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 20,
+                  vertical: 36,
                   horizontal: 28,
                 ),
                 child: Column(
@@ -57,12 +58,77 @@ class FoodItemPage extends StatelessWidget {
                         Text('- 1 +', style: TextStyle(fontSize: 20)),
                       ],
                     ),
+                    Expanded(
+                      child: Center(
+                        child: GridView.count(
+                          padding: EdgeInsets.zero,
+                          primary: false,
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: 2.3,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          children: const [
+                            MacroCardWidget(
+                              iconData: Icons.local_fire_department,
+                              color: Colors.black,
+                              title: 'Calories',
+                              amount: 200,
+                            ),
+                            MacroCardWidget(
+                              iconData: Icons.egg_alt,
+                              color: AppColors.protein,
+                              title: 'Protein',
+                              amount: 200,
+                            ),
+                            MacroCardWidget(
+                              iconData: Icons.water_drop,
+                              color: AppColors.fats,
+                              title: 'Fats',
+                              amount: 200,
+                            ),
+                            MacroCardWidget(
+                              iconData: Icons.cookie,
+                              color: AppColors.carbs,
+                              title: 'Carbs',
+                              amount: 200,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
                     Row(
                       children: [
                         Expanded(
                           child: OutlinedButton(
                             onPressed: () {},
-                            child: Text('Fix Results'),
+                            style: ButtonStyle(
+                              textStyle: WidgetStateProperty.all(
+                                TextStyle(fontSize: 16),
+                              ),
+                              padding: WidgetStateProperty.all(
+                                EdgeInsets.symmetric(vertical: 14),
+                              ),
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.black,
+                              ),
+                              overlayColor: WidgetStateProperty.resolveWith((
+                                states,
+                              ) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return Colors.black.withAlpha(25);
+                                }
+                                return null;
+                              }),
+                              splashFactory: NoSplash.splashFactory,
+                            ),
+
+                            child: Text(
+                              'Fix Results',
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ),
                         SizedBox(width: 12),
@@ -70,6 +136,12 @@ class FoodItemPage extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {},
                             style: ButtonStyle(
+                              textStyle: WidgetStateProperty.all(
+                                TextStyle(fontSize: 16),
+                              ),
+                              padding: WidgetStateProperty.all(
+                                EdgeInsets.symmetric(vertical: 14),
+                              ),
                               backgroundColor: WidgetStateProperty.all(
                                 Colors.black,
                               ),
@@ -86,7 +158,10 @@ class FoodItemPage extends StatelessWidget {
                               }),
                               splashFactory: NoSplash.splashFactory,
                             ),
-                            child: Text('Done'),
+                            child: Text(
+                              'Done',
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ),
                       ],
