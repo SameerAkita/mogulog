@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/food_item/macro_card_widget.dart';
+import 'package:mogulog/widgets/food_item/fix_results_sheet.dart';
 
 class FoodItemPage extends StatelessWidget {
   final String image;
@@ -107,7 +108,14 @@ class FoodItemPage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return FixResultsSheet();
+                                },
+                              );
+                            },
                             style: ButtonStyle(
                               textStyle: WidgetStateProperty.all(
                                 TextStyle(fontSize: 16),
