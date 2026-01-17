@@ -55,7 +55,23 @@ class FoodItemPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text('- 1 +', style: TextStyle(fontSize: 20)),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 16,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: Colors.black),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            children: [
+                              Text('-', style: TextStyle(fontSize: 24)),
+                              Text('1', style: TextStyle(fontSize: 24)),
+                              Text('+', style: TextStyle(fontSize: 24)),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                     Expanded(
