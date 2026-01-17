@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
 
-class MacroCardWidget extends StatefulWidget {
+class MacroCardWidget extends StatelessWidget {
   final IconData iconData;
   final Color color;
   final String title;
@@ -16,32 +16,7 @@ class MacroCardWidget extends StatefulWidget {
   });
 
   @override
-  State<MacroCardWidget> createState() => _MacroCardWidgetState();
-}
-
-class _MacroCardWidgetState extends State<MacroCardWidget> {
-  @override
-  bool showFixedContent = false;
-
-  @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
-      switchInCurve: Curves.easeIn,
-      switchOutCurve: Curves.easeOut,
-      transitionBuilder: (child, animation) {
-        final offsetAnimation = Tween(
-          begin: const Offset(0, 1),
-          end: Offset.zero,
-        ).animate(animation);
-
-        return SlideTransition(position: offsetAnimation, child: child);
-      },
-      child: _fixedContent(),
-    );
-  }
-
-  Widget _fixedContent() {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(color: Colors.white),
@@ -55,7 +30,7 @@ class _MacroCardWidgetState extends State<MacroCardWidget> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Icon(widget.iconData, color: widget.color),
+              child: Icon(iconData, color: color),
             ),
           ),
           SizedBox(width: 8),
@@ -65,12 +40,12 @@ class _MacroCardWidgetState extends State<MacroCardWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.title, style: TextStyle(fontSize: 18)),
+                Text(title, style: TextStyle(fontSize: 18)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${widget.amount}',
+                      '$amount',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
