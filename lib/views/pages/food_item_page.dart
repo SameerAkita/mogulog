@@ -16,7 +16,8 @@ class FoodItemPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('Meal'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text('Meal', style: TextStyle(color: Colors.white)),
 
         elevation: 0,
         backgroundColor: Colors.transparent,
