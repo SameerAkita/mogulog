@@ -7,12 +7,17 @@ class FoodItemPage extends StatelessWidget {
 
   const FoodItemPage({super.key, required this.image});
 
+  void handleDone(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('Meal',),
+        title: Text('Meal'),
+
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -45,35 +50,17 @@ class FoodItemPage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Oyakodon',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Oyakodon',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 8,
-                            horizontal: 16,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.black),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Row(
-                            children: [
-                              Text('-', style: TextStyle(fontSize: 24)),
-                              Text('1', style: TextStyle(fontSize: 24)),
-                              Text('+', style: TextStyle(fontSize: 24)),
-                            ],
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
+
                     Expanded(
                       child: Center(
                         child: GridView.count(
@@ -150,7 +137,9 @@ class FoodItemPage extends StatelessWidget {
                         SizedBox(width: 12),
                         Expanded(
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              handleDone(context);
+                            },
                             style: ButtonStyle(
                               textStyle: WidgetStateProperty.all(
                                 TextStyle(fontSize: 16),
