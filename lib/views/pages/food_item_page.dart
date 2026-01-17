@@ -12,7 +12,7 @@ class FoodItemPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('Meal'),
+        title: Text('Meal',),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
