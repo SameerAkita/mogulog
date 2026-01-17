@@ -15,6 +15,7 @@ class FoodItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
@@ -111,8 +112,19 @@ class FoodItemPage extends StatelessWidget {
                             onPressed: () {
                               showModalBottomSheet(
                                 context: context,
+                                isScrollControlled: true,
                                 builder: (context) {
-                                  return FixResultsSheet();
+                                  return Padding(
+                                    padding: EdgeInsets.only(
+                                      bottom: MediaQuery.of(
+                                        context,
+                                      ).viewInsets.bottom,
+                                    ),
+                                    child: FractionallySizedBox(
+                                      heightFactor: 0.55,
+                                      child: FixResultsSheet(),
+                                    ),
+                                  );
                                 },
                               );
                             },
