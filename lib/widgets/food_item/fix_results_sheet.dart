@@ -3,6 +3,13 @@ import 'package:flutter/material.dart';
 class FixResultsSheet extends StatelessWidget {
   const FixResultsSheet({super.key});
 
+  void _submit(BuildContext context) {
+    // api call
+    // loading
+
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +39,9 @@ class FixResultsSheet extends StatelessWidget {
           SizedBox(
             width: 200,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _submit(context);
+              },
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(Colors.black),
                 foregroundColor: WidgetStateProperty.all(Colors.white),
