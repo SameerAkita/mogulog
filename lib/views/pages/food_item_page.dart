@@ -130,7 +130,10 @@ class FoodItemPage extends StatelessWidget {
                             },
                             style: ButtonStyle(
                               textStyle: WidgetStateProperty.all(
-                                TextStyle(fontSize: 16),
+                                TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                               padding: WidgetStateProperty.all(
                                 EdgeInsets.symmetric(vertical: 14),
@@ -149,10 +152,7 @@ class FoodItemPage extends StatelessWidget {
                               splashFactory: NoSplash.splashFactory,
                             ),
 
-                            child: Text(
-                              'Fix Results',
-                              style: TextStyle(fontWeight: FontWeight.w600),
-                            ),
+                            child: Text('Fix Results'),
                           ),
                         ),
                         SizedBox(width: 12),
@@ -163,7 +163,10 @@ class FoodItemPage extends StatelessWidget {
                             },
                             style: ButtonStyle(
                               textStyle: WidgetStateProperty.all(
-                                TextStyle(fontSize: 16),
+                                TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                               padding: WidgetStateProperty.all(
                                 EdgeInsets.symmetric(vertical: 14),
@@ -184,10 +187,7 @@ class FoodItemPage extends StatelessWidget {
                               }),
                               splashFactory: NoSplash.splashFactory,
                             ),
-                            child: Text(
-                              'Done',
-                              style: TextStyle(fontWeight: FontWeight.w600),
-                            ),
+                            child: Text('Done'),
                           ),
                         ),
                       ],

@@ -27,8 +27,32 @@ class FixResultsSheet extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
           ),
-          
-          ElevatedButton(onPressed: () {}, child: Text('button')),
+          Expanded(child: Container()),
+
+          SizedBox(
+            width: 200,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.black),
+                foregroundColor: WidgetStateProperty.all(Colors.white),
+                textStyle: WidgetStateProperty.all(
+                  TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+                padding: WidgetStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 14),
+                ),
+                overlayColor: WidgetStateProperty.resolveWith((states) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return Colors.white.withAlpha(100);
+                  }
+                  return null;
+                }),
+                splashFactory: NoSplash.splashFactory,
+              ),
+              child: Text('Update'),
+            ),
+          ),
         ],
       ),
     );
