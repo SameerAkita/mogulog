@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
 
-class MacroCardWidget extends StatefulWidget {
+class MacroCardWidget extends StatelessWidget {
   final IconData iconData;
   final Color color;
   final String title;
@@ -15,19 +15,7 @@ class MacroCardWidget extends StatefulWidget {
     required this.amount,
   });
 
-  @override
-  State<MacroCardWidget> createState() => _MacroCardWidgetState();
-}
-
-class _MacroCardWidgetState extends State<MacroCardWidget> {
-  late final TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController(text: widget.amount.toString());
-  }
-
+  // late final TextEditingController _controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +31,7 @@ class _MacroCardWidgetState extends State<MacroCardWidget> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Icon(widget.iconData, color: widget.color),
+              child: Icon(iconData, color: color),
             ),
           ),
           SizedBox(width: 8),
@@ -53,40 +41,45 @@ class _MacroCardWidgetState extends State<MacroCardWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.title, style: TextStyle(fontSize: 18)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: _controller,
-                        style: const TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          isDense: true,
-                          contentPadding: EdgeInsets.zero,
-                        ),
-                      ),
-                    ),
-
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.edit,
-                          color: AppColors.lightgrey,
-                          size: 20,
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(title, style: TextStyle(fontSize: 18)),
+                Text(
+                  '$amount',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
+                // // Editable Text
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Expanded(
+                //       child: TextField(
+                //         controller: _controller,
+                //         style: const TextStyle(
+                //           fontSize: 19,
+                //           fontWeight: FontWeight.bold,
+                //         ),
+                //         decoration: const InputDecoration(
+                //           border: InputBorder.none,
+                //           focusedBorder: InputBorder.none,
+                //           enabledBorder: InputBorder.none,
+                //           isDense: true,
+                //           contentPadding: EdgeInsets.zero,
+                //         ),
+                //       ),
+                //     ),
+
+                //     Align(
+                //       alignment: Alignment.bottomRight,
+                //       child: InkWell(
+                //         onTap: () {},
+                //         child: Icon(
+                //           Icons.edit,
+                //           color: AppColors.lightgrey,
+                //           size: 20,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
