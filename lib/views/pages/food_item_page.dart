@@ -40,36 +40,35 @@ class _FoodItemPageState extends State<FoodItemPage> {
               child: Image.asset(widget.image, fit: BoxFit.cover),
             ),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-                height: MediaQuery.of(context).size.height * 0.55,
-                decoration: const BoxDecoration(
+          DraggableScrollableSheet(
+            initialChildSize: 0.55,
+            maxChildSize: 0.7,
+            builder: (context, scrollController) {
+              return Container(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
                 ),
-              
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     vertical: 36,
                     horizontal: 28,
                   ),
                   child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Oyakodon',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Oyakodon',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-              
-                        Center(
+                      ),
+
+                      Expanded(
+                        child: Center(
                           child: GridView.count(
                             padding: EdgeInsets.zero,
                             primary: false,
@@ -107,101 +106,101 @@ class _FoodItemPageState extends State<FoodItemPage> {
                             ],
                           ),
                         ),
-              
-                        Row(
-                          children: [
-                            Expanded(
-                              child: OutlinedButton(
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                    context: context,
-                                    isScrollControlled: true,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: MediaQuery.of(
-                                            context,
-                                          ).viewInsets.bottom,
-                                        ),
-                                        child: FractionallySizedBox(
-                                          heightFactor: 0.55,
-                                          child: FixResultsSheet(),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                                style: ButtonStyle(
-                                  textStyle: WidgetStateProperty.all(
-                                    TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                      ),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: OutlinedButton(
+                              onPressed: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: MediaQuery.of(
+                                          context,
+                                        ).viewInsets.bottom,
+                                      ),
+                                      child: FractionallySizedBox(
+                                        heightFactor: 0.55,
+                                        child: FixResultsSheet(),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              style: ButtonStyle(
+                                textStyle: WidgetStateProperty.all(
+                                  TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  padding: WidgetStateProperty.all(
-                                    EdgeInsets.symmetric(vertical: 14),
-                                  ),
-                                  foregroundColor: WidgetStateProperty.all(
-                                    Colors.black,
-                                  ),
-                                  overlayColor: WidgetStateProperty.resolveWith((
-                                    states,
-                                  ) {
-                                    if (states.contains(WidgetState.pressed)) {
-                                      return Colors.black.withAlpha(25);
-                                    }
-                                    return null;
-                                  }),
-                                  splashFactory: NoSplash.splashFactory,
                                 ),
-              
-                                child: Text('Fix Results'),
-                              ),
-                            ),
-                            SizedBox(width: 12),
-                            Expanded(
-                              child: TextButton(
-                                onPressed: () {
-                                  handleDone(context);
-                                },
-                                style: ButtonStyle(
-                                  textStyle: WidgetStateProperty.all(
-                                    TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  padding: WidgetStateProperty.all(
-                                    EdgeInsets.symmetric(vertical: 14),
-                                  ),
-                                  backgroundColor: WidgetStateProperty.all(
-                                    Colors.black,
-                                  ),
-                                  foregroundColor: WidgetStateProperty.all(
-                                    Colors.white,
-                                  ),
-                                  overlayColor: WidgetStateProperty.resolveWith((
-                                    states,
-                                  ) {
-                                    if (states.contains(WidgetState.pressed)) {
-                                      return Colors.white.withAlpha(100);
-                                    }
-                                    return null;
-                                  }),
-                                  splashFactory: NoSplash.splashFactory,
+                                padding: WidgetStateProperty.all(
+                                  EdgeInsets.symmetric(vertical: 14),
                                 ),
-                                child: Text('Done'),
+                                foregroundColor: WidgetStateProperty.all(
+                                  Colors.black,
+                                ),
+                                overlayColor: WidgetStateProperty.resolveWith((
+                                  states,
+                                ) {
+                                  if (states.contains(WidgetState.pressed)) {
+                                    return Colors.black.withAlpha(25);
+                                  }
+                                  return null;
+                                }),
+                                splashFactory: NoSplash.splashFactory,
                               ),
+
+                              child: Text('Fix Results'),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () {
+                                handleDone(context);
+                              },
+                              style: ButtonStyle(
+                                textStyle: WidgetStateProperty.all(
+                                  TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                padding: WidgetStateProperty.all(
+                                  EdgeInsets.symmetric(vertical: 14),
+                                ),
+                                backgroundColor: WidgetStateProperty.all(
+                                  Colors.black,
+                                ),
+                                foregroundColor: WidgetStateProperty.all(
+                                  Colors.white,
+                                ),
+                                overlayColor: WidgetStateProperty.resolveWith((
+                                  states,
+                                ) {
+                                  if (states.contains(WidgetState.pressed)) {
+                                    return Colors.white.withAlpha(100);
+                                  }
+                                  return null;
+                                }),
+                                splashFactory: NoSplash.splashFactory,
+                              ),
+                              child: Text('Done'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-            ),
-            
-          
+              );
+            },
+          ),
         ],
       ),
     );
