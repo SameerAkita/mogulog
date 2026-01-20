@@ -34,7 +34,7 @@ class FixResultsSheet extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
           ),
-          Expanded(child: Container()),
+          Spacer(),
 
           SizedBox(
             width: 200,
