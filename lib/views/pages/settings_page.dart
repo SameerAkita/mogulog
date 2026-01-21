@@ -6,13 +6,19 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          Text(
-            'Settings',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+      child: Center(
+        child: FractionallySizedBox(
+          widthFactor: 0.9,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Settings',
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
