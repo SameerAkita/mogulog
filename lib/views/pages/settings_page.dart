@@ -5,10 +5,15 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('settings')
-      ],
+    return SafeArea(
+      child: Column(
+        children: [
+          Text(
+            'Settings',
+            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
