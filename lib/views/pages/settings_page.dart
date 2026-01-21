@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/widgets/settings/settings_widget.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -16,6 +17,7 @@ class SettingsPage extends StatelessWidget {
                 'Settings',
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               ),
+              SettingsWidget(),
             ],
           ),
         ),
