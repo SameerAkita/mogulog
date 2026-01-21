@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SettingsWidget extends StatelessWidget {
-  const SettingsWidget({super.key});
+  final String title;
+
+  const SettingsWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class SettingsWidget extends StatelessWidget {
         padding: EdgeInsetsGeometry.symmetric(vertical: 4, horizontal: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text('settings option'), Icon(Icons.arrow_forward_ios)],
+          children: [Text(title), Icon(Icons.arrow_forward_ios)],
         ),
       ),
     );
