@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/features/onboarding/onboarding_step_welcome.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -28,18 +29,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
-                  if (_pageController.hasClients) {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut,
-                    );
-                  }
+                  _pageController.nextPage(
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.easeInOut,
+                  );
                 },
                 child: const Text('Next'),
               ),
             ),
           ),
-          Container(color: Colors.blue),
+          OnboardingStepWelcome(pageController: _pageController),
           Container(color: Colors.green),
         ],
       ),

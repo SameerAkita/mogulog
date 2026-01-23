@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 
 class OnboardingStepWelcome extends StatelessWidget {
-  const OnboardingStepWelcome({super.key});
+  final PageController pageController;
+  const OnboardingStepWelcome({super.key, required this.pageController});
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.red);
+    return Container(
+      color: Colors.blue,
+      child: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            pageController.nextPage(
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+            );
+          },
+          child: const Text('next'),
+        ),
+      ),
+    );
   }
 }
