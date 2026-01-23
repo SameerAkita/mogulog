@@ -17,6 +17,7 @@ class SettingsPage extends StatelessWidget {
                 'Settings',
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 8),
               SettingsWidget(title: 'Account'),
               SizedBox(height: 8),
               SettingsWidget(title: 'Goals'),

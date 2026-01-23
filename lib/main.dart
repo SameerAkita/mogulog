@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/features/onboarding/onboarding_page.dart';
 import 'package:mogulog/views/widget_tree.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: WidgetTree(),
+      // home: WidgetTree(),
+      home: OnboardingPage(),
     );
   }
 }

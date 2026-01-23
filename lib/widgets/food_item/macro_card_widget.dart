@@ -41,10 +41,10 @@ class MacroCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: TextStyle(fontSize: 18)),
+                Text(title, style: TextStyle(fontSize: 16)),
                 Text(
                   '$amount',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 // // Editable Text
                 // Row(
