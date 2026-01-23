@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class OnboardingNextButton extends StatelessWidget {
+class OnboardingContinueButton extends StatelessWidget {
   final PageController pageController;
 
-  const OnboardingNextButton({super.key, required this.pageController});
+  const OnboardingContinueButton({super.key, required this.pageController});
 
   @override
   Widget build(BuildContext context) {

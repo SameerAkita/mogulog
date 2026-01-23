@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/features/onboarding/onboarding_step_gender.dart';
 import 'package:mogulog/features/onboarding/onboarding_step_welcome.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -20,27 +21,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          Container(
-            color: Colors.red,
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                child: const Text('Next'),
-              ),
+      body: SafeArea(
+        child: Center(
+          child: FractionallySizedBox(
+            widthFactor: 0.9,
+            child: PageView(
+              controller: _pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                OnboardingStepWelcome(pageController: _pageController),
+                OnboardingStepGender(pageController: _pageController)
+              ],
             ),
           ),
-          OnboardingStepWelcome(pageController: _pageController),
-          Container(color: Colors.green),
-        ],
+        ),
       ),
     );
   }
