@@ -38,6 +38,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             widthFactor: 0.9,
             child: Column(
               children: [
+                LinearProgressIndicator(value: (0.5)),
                 Expanded(
                   child: PageView(
                     controller: _pageController,
