@@ -13,6 +13,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
   late final List<Widget> _pages;
 
+  int _currentPage = 0;
+
   @override
   void initState() {
     super.initState();
@@ -38,10 +40,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
             widthFactor: 0.9,
             child: Column(
               children: [
-                LinearProgressIndicator(value: (0.5)),
+                LinearProgressIndicator(
+                  value: (_currentPage + 1) / _pages.length,
+                ),
                 Expanded(
                   child: PageView(
                     controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
                     physics: const NeverScrollableScrollPhysics(),
                     children: _pages,
                   ),
