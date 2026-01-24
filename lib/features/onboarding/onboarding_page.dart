@@ -55,6 +55,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     children: _pages,
                   ),
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  child: Text('Continue'),
+                ),
               ],
             ),
           ),
