@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/features/onboarding/onboarding_step_gender.dart';
-import 'package:mogulog/features/onboarding/onboarding_step_welcome.dart';
+import 'package:mogulog/features/welcome/welcome_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -25,12 +25,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
         child: Center(
           child: FractionallySizedBox(
             widthFactor: 0.9,
-            child: PageView(
-              controller: _pageController,
-              physics: const NeverScrollableScrollPhysics(),
+            child: Column(
               children: [
-                OnboardingStepWelcome(pageController: _pageController),
-                OnboardingStepGender(pageController: _pageController)
+                Expanded(
+                  child: PageView(
+                    controller: _pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      OnboardingStepGender(pageController: _pageController),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

@@ -12,6 +12,7 @@ class OnboardingStepGender extends StatelessWidget {
           'Choose your Gender',
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
+        
       ],
     );
   }
