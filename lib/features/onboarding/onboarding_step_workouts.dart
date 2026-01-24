@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
-class OnboardingStepGender extends StatelessWidget {
-  final PageController pageController;
-  const OnboardingStepGender({super.key, required this.pageController});
+class OnboardingStepWorkouts extends StatelessWidget {
+  const OnboardingStepWorkouts({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          'Choose your Gender',
+          'How many workouts do you do per week?',
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
         Text('This will be used to calibrate your custom plan'),
         
       ],
-    );
+    );;
   }
 }

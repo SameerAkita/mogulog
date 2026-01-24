@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/features/onboarding/onboarding_step_gender.dart';
-import 'package:mogulog/features/welcome/welcome_page.dart';
+import 'package:mogulog/features/onboarding/onboarding_step_workouts.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -11,6 +11,17 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _pages = [
+      OnboardingStepGender(pageController: _pageController),
+      OnboardingStepWorkouts(),
+    ];
+  }
 
   @override
   void dispose() {
@@ -31,9 +42,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: PageView(
                     controller: _pageController,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      OnboardingStepGender(pageController: _pageController),
-                    ],
+                    children: _pages,
                   ),
                 ),
               ],
