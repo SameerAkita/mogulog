@@ -5,10 +5,37 @@ class OnboardingSelectBox extends StatelessWidget {
   final bool selected;
   final VoidCallback onTap;
 
-  const OnboardingSelectBox({super.key, required this.title, required this.selected, required this.onTap});
+  const OnboardingSelectBox({
+    super.key,
+    required this.title,
+    required this.selected,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: GestureDetector(),);
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          height: 20,
+          decoration: BoxDecoration(
+            color: selected ? Colors.black : Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Center(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: selected ? Colors.white : Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
