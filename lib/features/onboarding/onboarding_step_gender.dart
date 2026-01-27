@@ -23,32 +23,41 @@ class _OnboardingStepGenderState extends State<OnboardingStepGender> {
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
         Text('This will be used to calibrate your custom plan'),
-        OnboardingSelectBox(
-          title: 'Male',
-          selected: selectedGender == Gender.male,
-          onTap: () {
-            setState(() {
-              selectedGender = Gender.male;
-            });
-          },
-        ),
-        OnboardingSelectBox(
-          title: 'Female',
-          selected: selectedGender == Gender.female,
-          onTap: () {
-            setState(() {
-              selectedGender = Gender.female;
-            });
-          },
-        ),
-        OnboardingSelectBox(
-          title: 'Other',
-          selected: selectedGender == Gender.other,
-          onTap: () {
-            setState(() {
-              selectedGender = Gender.other;
-            });
-          },
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OnboardingSelectBox(
+                title: 'Male',
+                selected: selectedGender == Gender.male,
+                onTap: () {
+                  setState(() {
+                    selectedGender = Gender.male;
+                  });
+                },
+              ),
+              SizedBox(height: 16),
+              OnboardingSelectBox(
+                title: 'Female',
+                selected: selectedGender == Gender.female,
+                onTap: () {
+                  setState(() {
+                    selectedGender = Gender.female;
+                  });
+                },
+              ),
+              SizedBox(height: 16),
+              OnboardingSelectBox(
+                title: 'Other',
+                selected: selectedGender == Gender.other,
+                onTap: () {
+                  setState(() {
+                    selectedGender = Gender.other;
+                  });
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );

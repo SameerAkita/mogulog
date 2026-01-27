@@ -14,24 +14,22 @@ class OnboardingSelectBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          height: 20,
-          decoration: BoxDecoration(
-            color: selected ? Colors.black : Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-              ),
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        height: 60,
+        decoration: BoxDecoration(
+          color: selected ? Colors.black : Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+              color: selected ? Colors.white : Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
             ),
           ),
         ),
