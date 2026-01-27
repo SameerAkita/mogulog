@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/features/onboarding/onboarding_step_gender.dart';
+import 'package:mogulog/features/onboarding/onboarding_step_heightandweight.dart';
 import 'package:mogulog/features/onboarding/onboarding_step_workouts.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -20,8 +21,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
     super.initState();
 
     _pages = [
-      OnboardingStepGender(pageController: _pageController),
+      OnboardingStepGender(),
       OnboardingStepWorkouts(),
+      OnboardingStepHeightandweight(),
     ];
   }
 

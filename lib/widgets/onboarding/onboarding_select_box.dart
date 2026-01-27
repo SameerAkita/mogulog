@@ -28,7 +28,7 @@ class OnboardingSelectBox extends StatelessWidget {
             title,
             style: TextStyle(
               color: selected ? Colors.white : Colors.black,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
               fontSize: 20,
             ),
           ),

@@ -60,6 +60,6 @@ class _OnboardingStepWorkoutsState extends State<OnboardingStepWorkouts> {
         ),
       ],
     );
-    ;
+    
   }
 }

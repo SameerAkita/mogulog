@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mogulog/widgets/onboarding/onboarding_select_box.dart';
 
 class OnboardingStepGender extends StatefulWidget {
-  final PageController pageController;
-  const OnboardingStepGender({super.key, required this.pageController});
+  const OnboardingStepGender({super.key});
 
   @override
   State<OnboardingStepGender> createState() => _OnboardingStepGenderState();
