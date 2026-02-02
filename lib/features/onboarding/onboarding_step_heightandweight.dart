@@ -58,29 +58,23 @@ class _OnboardingStepHeightandweightState
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(child: Column(children: [Text('Height'), ])),
-                  Expanded(child: Column(children: [Text('Weight')])),
-                ],
-              ),
-
               Expanded(
-                child: ListWheelScrollView(
-                  itemExtent: 20,
-
+                child: Row(
                   children: [
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
-                    Text('1'),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text('Height'),
+                          Expanded(
+                            child: ListWheelScrollView(
+                              itemExtent: 20,
+                              children: [Text('1'), Text('1'), Text('1')],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(child: Column(children: [Text('Weight')])),
                   ],
                 ),
               ),
