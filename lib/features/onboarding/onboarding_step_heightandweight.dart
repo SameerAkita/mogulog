@@ -74,7 +74,19 @@ class _OnboardingStepHeightandweightState
                         ],
                       ),
                     ),
-                    Expanded(child: Column(children: [Text('Weight')])),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text('Weight'),
+                          Expanded(
+                            child: ListWheelScrollView(
+                              itemExtent: 20,
+                              children: [Text('1'), Text('1'), Text('1')],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
