@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/onboarding/onboarding_listwheel.dart';
 import 'package:mogulog/widgets/onboarding/tile.dart';
 
 class OnboardingStepHeightandweight extends StatefulWidget {
@@ -14,6 +15,7 @@ class _OnboardingStepHeightandweightState
     extends State<OnboardingStepHeightandweight> {
   bool metric = true;
   int selectedHeightIndex = 0;
+  int selectedWeightIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -67,28 +69,16 @@ class _OnboardingStepHeightandweightState
                       child: Column(
                         children: [
                           Text('Height'),
-                          Expanded(
-                            child: ListWheelScrollView.useDelegate(
-                              onSelectedItemChanged: (value) => {
-                                setState(() {
-                                  selectedHeightIndex = value;
-                                }),
-                              },
-                              itemExtent: 27,
-                              perspective: 0.005,
-                              diameterRatio: 1.4,
-                              physics: FixedExtentScrollPhysics(),
-                              childDelegate: ListWheelChildBuilderDelegate(
-                                childCount: 181,
-                                builder: (context, index) {
-                                  return Tile(
-                                    value: index + 60,
-                                    unit: 'cm',
-                                    isSelected: index == selectedHeightIndex,
-                                  );
-                                },
-                              ),
-                            ),
+                          OnboardingListwheel(
+                            min: 60,
+                            itemCount: 241,
+                            selectedIndex: selectedHeightIndex,
+                            unit: 'cm',
+                            onChanged: (index) {
+                              setState(() {
+                                selectedHeightIndex = index;
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -97,23 +87,16 @@ class _OnboardingStepHeightandweightState
                       child: Column(
                         children: [
                           Text('Weight'),
-                          Expanded(
-                            child: ListWheelScrollView.useDelegate(
-                              itemExtent: 27,
-                              perspective: 0.005,
-                              diameterRatio: 1.4,
-
-                              childDelegate: ListWheelChildBuilderDelegate(
-                                childCount: 311,
-                                builder: (context, index) {
-                                  return Tile(
-                                    value: index + 50,
-                                    unit: 'kg',
-                                    isSelected: false,
-                                  );
-                                },
-                              ),
-                            ),
+                          OnboardingListwheel(
+                            min: 50,
+                            itemCount: 301,
+                            selectedIndex: selectedWeightIndex,
+                            unit: 'kg',
+                            onChanged: (index) {
+                              setState(() {
+                                selectedWeightIndex = index;
+                              });
+                            },
                           ),
                         ],
                       ),
