@@ -67,8 +67,31 @@ class _OnboardingStepHeightandweightState
                           Text('Height'),
                           Expanded(
                             child: ListWheelScrollView(
-                              itemExtent: 20,
-                              children: [Text('1'), Text('1'), Text('1')],
+                              itemExtent: 50,
+                              perspective: 0.01,
+                              diameterRatio: 2.5,
+                              children: [
+                                Container(
+                                  color: Colors.blue,
+                                  child: Center(child: Text('hello')),
+                                ),
+                                Container(
+                                  color: Colors.blue,
+                                  child: Center(child: Text('hello')),
+                                ),
+                                Container(
+                                  color: Colors.blue,
+                                  child: Center(child: Text('hello')),
+                                ),
+                                Container(
+                                  color: Colors.blue,
+                                  child: Center(child: Text('hello')),
+                                ),
+                                Container(
+                                  color: Colors.blue,
+                                  child: Center(child: Text('hello')),
+                                ),
+                              ],
                             ),
                           ),
                         ],
