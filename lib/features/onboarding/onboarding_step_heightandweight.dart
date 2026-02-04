@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
+import 'package:mogulog/widgets/onboarding/tile.dart';
 
 class OnboardingStepHeightandweight extends StatefulWidget {
   const OnboardingStepHeightandweight({super.key});
@@ -66,32 +67,17 @@ class _OnboardingStepHeightandweightState
                         children: [
                           Text('Height'),
                           Expanded(
-                            child: ListWheelScrollView(
-                              itemExtent: 50,
-                              perspective: 0.01,
-                              diameterRatio: 2.5,
-                              children: [
-                                Container(
-                                  color: Colors.blue,
-                                  child: Center(child: Text('hello')),
-                                ),
-                                Container(
-                                  color: Colors.blue,
-                                  child: Center(child: Text('hello')),
-                                ),
-                                Container(
-                                  color: Colors.blue,
-                                  child: Center(child: Text('hello')),
-                                ),
-                                Container(
-                                  color: Colors.blue,
-                                  child: Center(child: Text('hello')),
-                                ),
-                                Container(
-                                  color: Colors.blue,
-                                  child: Center(child: Text('hello')),
-                                ),
-                              ],
+                            child: ListWheelScrollView.useDelegate(
+                              itemExtent: 27,
+                              perspective: 0.005,
+                              diameterRatio: 1.4,
+
+                              childDelegate: ListWheelChildBuilderDelegate(
+                                childCount: 181,
+                                builder: (context, index) {
+                                  return Tile(value: index + 60, unit: 'cm');
+                                },
+                              ),
                             ),
                           ),
                         ],
@@ -102,9 +88,17 @@ class _OnboardingStepHeightandweightState
                         children: [
                           Text('Weight'),
                           Expanded(
-                            child: ListWheelScrollView(
-                              itemExtent: 20,
-                              children: [Text('1'), Text('1'), Text('1')],
+                            child: ListWheelScrollView.useDelegate(
+                              itemExtent: 27,
+                              perspective: 0.005,
+                              diameterRatio: 1.4,
+
+                              childDelegate: ListWheelChildBuilderDelegate(
+                                childCount: 311,
+                                builder: (context, index) {
+                                  return Tile(value: index + 50, unit: 'kg');
+                                },
+                              ),
                             ),
                           ),
                         ],
