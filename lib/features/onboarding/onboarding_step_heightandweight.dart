@@ -13,6 +13,7 @@ class OnboardingStepHeightandweight extends StatefulWidget {
 class _OnboardingStepHeightandweightState
     extends State<OnboardingStepHeightandweight> {
   bool metric = true;
+  int selectedHeightIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -68,14 +69,23 @@ class _OnboardingStepHeightandweightState
                           Text('Height'),
                           Expanded(
                             child: ListWheelScrollView.useDelegate(
+                              onSelectedItemChanged: (value) => {
+                                setState(() {
+                                  selectedHeightIndex = value;
+                                }),
+                              },
                               itemExtent: 27,
                               perspective: 0.005,
                               diameterRatio: 1.4,
-
+                              physics: FixedExtentScrollPhysics(),
                               childDelegate: ListWheelChildBuilderDelegate(
                                 childCount: 181,
                                 builder: (context, index) {
-                                  return Tile(value: index + 60, unit: 'cm');
+                                  return Tile(
+                                    value: index + 60,
+                                    unit: 'cm',
+                                    isSelected: index == selectedHeightIndex,
+                                  );
                                 },
                               ),
                             ),
@@ -96,7 +106,11 @@ class _OnboardingStepHeightandweightState
                               childDelegate: ListWheelChildBuilderDelegate(
                                 childCount: 311,
                                 builder: (context, index) {
-                                  return Tile(value: index + 50, unit: 'kg');
+                                  return Tile(
+                                    value: index + 50,
+                                    unit: 'kg',
+                                    isSelected: false,
+                                  );
                                 },
                               ),
                             ),
