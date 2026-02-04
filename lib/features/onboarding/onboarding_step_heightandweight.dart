@@ -29,7 +29,6 @@ class _OnboardingStepHeightandweightState
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -62,47 +61,46 @@ class _OnboardingStepHeightandweightState
                   ),
                 ],
               ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Text('Height'),
-                          OnboardingListwheel(
-                            min: 60,
-                            itemCount: 241,
-                            selectedIndex: selectedHeightIndex,
-                            unit: 'cm',
-                            onChanged: (index) {
-                              setState(() {
-                                selectedHeightIndex = index;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text('Height'),
+                        OnboardingListwheel(
+                          min: 60,
+                          itemCount: 241,
+                          selectedIndex: selectedHeightIndex,
+                          unit: 'cm',
+                          onChanged: (index) {
+                            setState(() {
+                              selectedHeightIndex = index;
+                            });
+                          },
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Text('Weight'),
-                          OnboardingListwheel(
-                            min: 50,
-                            itemCount: 301,
-                            selectedIndex: selectedWeightIndex,
-                            unit: 'kg',
-                            onChanged: (index) {
-                              setState(() {
-                                selectedWeightIndex = index;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text('Weight'),
+                        OnboardingListwheel(
+                          min: 50,
+                          itemCount: 301,
+                          selectedIndex: selectedWeightIndex,
+                          unit: 'kg',
+                          onChanged: (index) {
+                            setState(() {
+                              selectedWeightIndex = index;
+                            });
+                          },
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
