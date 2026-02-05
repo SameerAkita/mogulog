@@ -21,25 +21,31 @@ class OnboardingListwheel extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 160,
-      child: ClipRRect(
-        child: ListWheelScrollView.useDelegate(
-          onSelectedItemChanged: onChanged,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(height: 25, decoration: BoxDecoration(color: Colors.red)),
+          ClipRRect(
+            child: ListWheelScrollView.useDelegate(
+              onSelectedItemChanged: onChanged,
 
-          itemExtent: 25,
-          perspective: 0.005,
-          diameterRatio: 1.2,
-          physics: FixedExtentScrollPhysics(),
-          childDelegate: ListWheelChildBuilderDelegate(
-            childCount: 181,
-            builder: (context, index) {
-              return Tile(
-                value: index + min,
-                unit: unit,
-                isSelected: index == selectedIndex,
-              );
-            },
+              itemExtent: 25,
+              perspective: 0.005,
+              diameterRatio: 1.2,
+              physics: FixedExtentScrollPhysics(),
+              childDelegate: ListWheelChildBuilderDelegate(
+                childCount: 181,
+                builder: (context, index) {
+                  return Tile(
+                    value: index + min,
+                    unit: unit,
+                    isSelected: index == selectedIndex,
+                  );
+                },
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
