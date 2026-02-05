@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/onboarding/tile.dart';
 
 class OnboardingListwheel extends StatelessWidget {
@@ -29,7 +30,7 @@ class OnboardingListwheel extends StatelessWidget {
             child: Container(
               height: 25,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 210, 210, 210),
+                color: AppColors.lightgrey,
                 borderRadius: BorderRadius.circular(25),
               ),
             ),
