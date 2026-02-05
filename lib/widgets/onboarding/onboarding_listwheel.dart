@@ -24,7 +24,16 @@ class OnboardingListwheel extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Container(height: 25, decoration: BoxDecoration(color: Colors.red)),
+          FractionallySizedBox(
+            widthFactor: 0.9,
+            child: Container(
+              height: 25,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 210, 210, 210),
+                borderRadius: BorderRadius.circular(25),
+              ),
+            ),
+          ),
           ClipRRect(
             child: ListWheelScrollView.useDelegate(
               onSelectedItemChanged: onChanged,
