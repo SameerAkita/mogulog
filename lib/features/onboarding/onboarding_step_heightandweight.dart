@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/onboarding/onboarding_listwheel.dart';
-import 'package:mogulog/widgets/onboarding/tile.dart';
 
 class OnboardingStepHeightandweight extends StatefulWidget {
   const OnboardingStepHeightandweight({super.key});
@@ -61,13 +60,20 @@ class _OnboardingStepHeightandweightState
                   ),
                 ],
               ),
+              SizedBox(height: 8),
 
               Row(
                 children: [
                   Expanded(
                     child: Column(
                       children: [
-                        Text('Height'),
+                        Text(
+                          'Height',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         OnboardingListwheel(
                           min: 60,
                           itemCount: 241,
@@ -85,7 +91,13 @@ class _OnboardingStepHeightandweightState
                   Expanded(
                     child: Column(
                       children: [
-                        Text('Weight'),
+                        Text(
+                          'Weight',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         OnboardingListwheel(
                           min: 50,
                           itemCount: 301,
