@@ -16,6 +16,55 @@ class _OnboardingStepHeightandweightState
   int selectedHeightIndex = 0;
   int selectedWeightIndex = 0;
 
+  Widget _buildMetric() {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                'Height',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              OnboardingListwheel(
+                min: 60,
+                itemCount: 241,
+                selectedIndex: selectedHeightIndex,
+                unit: 'cm',
+                onChanged: (index) {
+                  setState(() {
+                    selectedHeightIndex = index;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                'Weight',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              OnboardingListwheel(
+                min: 50,
+                itemCount: 301,
+                selectedIndex: selectedWeightIndex,
+                unit: 'kg',
+                onChanged: (index) {
+                  setState(() {
+                    selectedWeightIndex = index;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,58 +111,7 @@ class _OnboardingStepHeightandweightState
               ),
               SizedBox(height: 8),
 
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          'Height',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        OnboardingListwheel(
-                          min: 60,
-                          itemCount: 241,
-                          selectedIndex: selectedHeightIndex,
-                          unit: 'cm',
-                          onChanged: (index) {
-                            setState(() {
-                              selectedHeightIndex = index;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          'Weight',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        OnboardingListwheel(
-                          min: 50,
-                          itemCount: 301,
-                          selectedIndex: selectedWeightIndex,
-                          unit: 'kg',
-                          onChanged: (index) {
-                            setState(() {
-                              selectedWeightIndex = index;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              _buildMetric(),
             ],
           ),
         ),
