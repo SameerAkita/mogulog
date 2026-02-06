@@ -21,7 +21,6 @@ class _OnboardingStepHeightandweightState
 
   Widget _buildMetric() {
     return Row(
-      key: const ValueKey('metric'),
       children: [
         Expanded(
           child: Column(
@@ -71,7 +70,6 @@ class _OnboardingStepHeightandweightState
 
   Widget _buildImperial() {
     return Row(
-      key: const ValueKey('imperial'),
       children: [
         Expanded(
           child: Column(
@@ -184,10 +182,7 @@ class _OnboardingStepHeightandweightState
               ),
               SizedBox(height: 8),
 
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 250),
-                child: metric ? _buildMetric() : _buildImperial(),
-              ),
+              metric ? _buildMetric() : _buildImperial(),
             ],
           ),
         ),
