@@ -13,7 +13,10 @@ class OnboardingStepHeightandweight extends StatefulWidget {
 class _OnboardingStepHeightandweightState
     extends State<OnboardingStepHeightandweight> {
   bool metric = true;
+
+  // TODO: only store heightCm, and infer the index based on this height. Only store one true value in db
   int selectedHeightIndex = 0;
+  int selectedInchesIndex = 0;
   int selectedWeightIndex = 0;
 
   Widget _buildMetric() {
@@ -75,16 +78,35 @@ class _OnboardingStepHeightandweightState
                 'Height',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
-              OnboardingListwheel(
-                min: 60,
-                itemCount: 241,
-                selectedIndex: selectedHeightIndex,
-                unit: 'ft',
-                onChanged: (index) {
-                  setState(() {
-                    selectedHeightIndex = index;
-                  });
-                },
+              Row(
+                children: [
+                  Expanded(
+                    child: OnboardingListwheel(
+                      min: 3,
+                      itemCount: 6,
+                      selectedIndex: selectedHeightIndex,
+                      unit: 'ft',
+                      onChanged: (index) {
+                        setState(() {
+                          selectedHeightIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: OnboardingListwheel(
+                      min: 0,
+                      itemCount: 13,
+                      selectedIndex: selectedInchesIndex,
+                      unit: 'in',
+                      onChanged: (index) {
+                        setState(() {
+                          selectedInchesIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -98,7 +120,7 @@ class _OnboardingStepHeightandweightState
               ),
               OnboardingListwheel(
                 min: 50,
-                itemCount: 301,
+                itemCount: 651,
                 selectedIndex: selectedWeightIndex,
                 unit: 'lbs',
                 onChanged: (index) {

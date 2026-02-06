@@ -26,7 +26,7 @@ class OnboardingListwheel extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           FractionallySizedBox(
-            widthFactor: 0.9,
+            widthFactor: 0.8,
             child: Container(
               height: 25,
               decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class OnboardingListwheel extends StatelessWidget {
               diameterRatio: 1.2,
               physics: FixedExtentScrollPhysics(),
               childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 181,
+                childCount: itemCount,
                 builder: (context, index) {
                   return Tile(
                     value: index + min,
