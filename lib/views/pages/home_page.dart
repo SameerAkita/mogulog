@@ -117,6 +117,7 @@ class HomePage extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
+                    SizedBox(height: 8),
                     Expanded(
                       child: SingleChildScrollView(
                         child: Column(
