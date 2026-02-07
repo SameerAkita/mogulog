@@ -14,22 +14,18 @@ class HomePage extends StatelessWidget {
           widthFactor: 0.9,
           child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'mogulog',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 36,
-                      ),
-                    ),
-                    Icon(Icons.notifications_none_rounded, size: 36),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'mogulog',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                  ),
+                  Icon(Icons.notifications_none_rounded, size: 36),
+                ],
               ),
+              SizedBox(height: 8),
+
               Expanded(
                 flex: 2,
                 child: Card(
