@@ -111,7 +111,7 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Recently Uploaded',
+                      'Recently Added',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
