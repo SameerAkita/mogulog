@@ -19,7 +19,11 @@ class HomePage extends StatelessWidget {
                 children: [
                   Text(
                     'mogulog',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36,
+                      color: AppColors.darkbrown,
+                    ),
                   ),
                   Icon(Icons.notifications_none_rounded, size: 36),
                 ],

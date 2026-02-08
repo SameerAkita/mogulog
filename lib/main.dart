@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/views/widget_tree.dart';
 
 void main() {
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-        primaryTextTheme: TextTheme(titleLarge: TextStyle(color: Colors.pink)),
+        cardTheme: CardThemeData(color: AppColors.offwhite),
+        scaffoldBackgroundColor: AppColors.offwhite,
       ),
       // home: WidgetTree(),
       home: WidgetTree(),
