@@ -138,17 +138,20 @@ class _FoodItemPageState extends State<FoodItemPage> {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
+                                side: WidgetStateProperty.all(
+                                  BorderSide(color: AppColors.orange),
+                                ),
                                 padding: WidgetStateProperty.all(
                                   EdgeInsets.symmetric(vertical: 14),
                                 ),
                                 foregroundColor: WidgetStateProperty.all(
-                                  Colors.black,
+                                  AppColors.orange,
                                 ),
                                 overlayColor: WidgetStateProperty.resolveWith((
                                   states,
                                 ) {
                                   if (states.contains(WidgetState.pressed)) {
-                                    return Colors.black.withAlpha(25);
+                                    return AppColors.orange.withAlpha(25);
                                   }
                                   return null;
                                 }),
@@ -175,7 +178,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                                   EdgeInsets.symmetric(vertical: 14),
                                 ),
                                 backgroundColor: WidgetStateProperty.all(
-                                  Colors.black,
+                                  AppColors.orange,
                                 ),
                                 foregroundColor: WidgetStateProperty.all(
                                   Colors.white,

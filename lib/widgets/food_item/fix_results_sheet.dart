@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/theme/app_colors.dart';
 
 class FixResultsSheet extends StatelessWidget {
   const FixResultsSheet({super.key});
@@ -43,7 +44,7 @@ class FixResultsSheet extends StatelessWidget {
                 _submit(context);
               },
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.black),
+                backgroundColor: WidgetStateProperty.all(AppColors.orange),
                 foregroundColor: WidgetStateProperty.all(Colors.white),
                 textStyle: WidgetStateProperty.all(
                   TextStyle(fontSize: 16, fontWeight: FontWeight.w600),

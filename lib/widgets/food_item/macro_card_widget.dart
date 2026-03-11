@@ -26,7 +26,7 @@ class MacroCardWidget extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: AppColors.tempgrey,
+              color: AppColors.orangeAccent.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
