@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/data/notifiers.dart';
+import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/views/pages/analytics_page.dart';
 import 'package:mogulog/views/pages/home_page.dart';
 import 'package:mogulog/views/pages/settings_page.dart';
@@ -19,11 +20,21 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ValueListenableBuilder(
-        valueListenable: selectedPageNotifier,
-        builder: (builder, selectedPage, child) {
-          return pages.elementAt(selectedPage);
-        },
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.offwhite, AppColors.darkoffwhite],
+          ),
+        ),
+        child: ValueListenableBuilder(
+          valueListenable: selectedPageNotifier,
+          builder: (builder, selectedPage, child) {
+            return pages.elementAt(selectedPage);
+          },
+        ),
       ),
       bottomNavigationBar: NavbarWidget(),
     );

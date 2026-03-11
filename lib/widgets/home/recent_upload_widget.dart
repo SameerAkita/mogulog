@@ -25,6 +25,7 @@ class RecentUploadWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         Navigator.push(
           context,
@@ -40,7 +41,7 @@ class RecentUploadWidget extends StatelessWidget {
         height: 125,
         margin: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
-          color: AppColors.orangeAccent,
+          color: AppColors.offwhite,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(

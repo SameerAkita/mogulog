@@ -12,7 +12,7 @@ class NavbarWidget extends StatelessWidget {
       builder: (context, selectedPage, child) {
         return NavigationBarTheme(
           data: NavigationBarThemeData(
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.offwhite,
             indicatorColor: AppColors.orange,
             overlayColor: WidgetStateProperty.all(Colors.transparent),
             iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {

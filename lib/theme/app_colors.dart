@@ -14,6 +14,7 @@ class AppColors {
 
   // main colors
   static const Color offwhite = Color(0xFFFEF9E4);
+  static const Color darkoffwhite = Color(0xFFF8EDD2);
   static const Color orange = Color(0xFFE27347);
   static const Color orangeAccent = Color(0xFFFAE5C3);
   static const Color darkbrown = Color(0xFF51342D);
