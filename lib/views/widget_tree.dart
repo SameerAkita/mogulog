@@ -20,22 +20,13 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [AppColors.offwhite, AppColors.darkoffwhite],
-          ),
-        ),
-        child: ValueListenableBuilder(
-          valueListenable: selectedPageNotifier,
-          builder: (builder, selectedPage, child) {
-            return pages.elementAt(selectedPage);
-          },
-        ),
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (builder, selectedPage, child) {
+          return pages.elementAt(selectedPage);
+        },
       ),
+
       bottomNavigationBar: NavbarWidget(),
     );
   }

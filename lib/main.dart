@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-        cardTheme: CardThemeData(color: AppColors.offwhite),
-        scaffoldBackgroundColor: AppColors.offwhite,
+        cardTheme: CardThemeData(color: Colors.white),
+        scaffoldBackgroundColor: Colors.white,
         textTheme: ThemeData.light().textTheme.apply(
           bodyColor: AppColors.darkbrown,
           displayColor: AppColors.darkbrown,
