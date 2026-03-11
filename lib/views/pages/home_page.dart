@@ -35,39 +35,45 @@ class HomePage extends StatelessWidget {
                 child: Card(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Column(
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              '2250',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 48,
-                              ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '2270',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 48,
+                                    color: AppColors.orange,
+                                  ),
+                                ),
+                                Text(
+                                  'calories left',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                             ),
-                            Text(
-                              'calories left',
-                              style: TextStyle(fontSize: 16),
+                            SizedBox(
+                              height: 100.0,
+                              width: 100.0,
+                              child: Icon(
+                                Icons.catching_pokemon_rounded,
+                                size: 100,
+                                color: AppColors.orange,
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 100.0,
-                          width: 100.0,
-                          child: CircularProgressIndicator(
-                            value: 0.8,
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              Colors.black,
-                            ),
-                            backgroundColor: AppColors.lightgrey,
-                            strokeWidth: 12,
-                            strokeCap: StrokeCap.round,
-                          ),
-                        ),
+                        SizedBox(height: 12),
+                        LinearProgressIndicator(),
                       ],
                     ),
                   ),
