@@ -6,6 +6,7 @@ class MacroWidget extends StatelessWidget {
   final String title;
   final double value;
   final Color color;
+  final IconData icon;
 
   const MacroWidget({
     super.key,
@@ -13,6 +14,7 @@ class MacroWidget extends StatelessWidget {
     required this.title,
     required this.value,
     required this.color,
+    required this.icon,
   });
 
   @override
@@ -35,16 +37,22 @@ class MacroWidget extends StatelessWidget {
             Text('$title left'),
             SizedBox(height: 8),
             Center(
-              child: SizedBox(
-                height: 60,
-                width: 60,
-                child: CircularProgressIndicator(
-                  value: value,
-                  valueColor: AlwaysStoppedAnimation<Color>(color),
-                  backgroundColor: AppColors.lightgrey,
-                  strokeWidth: 7,
-                  strokeCap: StrokeCap.round,
-                ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: CircularProgressIndicator(
+                      value: value,
+                      valueColor: AlwaysStoppedAnimation<Color>(color),
+                      backgroundColor: AppColors.lightgrey,
+                      strokeWidth: 6,
+                      strokeCap: StrokeCap.round,
+                    ),
+                  ),
+                  Icon(icon, color: color, size: 20),
+                ],
               ),
             ),
           ],

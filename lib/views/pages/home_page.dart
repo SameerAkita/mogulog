@@ -91,6 +91,7 @@ class HomePage extends StatelessWidget {
                         title: 'Protein',
                         value: 0.8,
                         color: AppColors.protein,
+                        icon: Icons.egg_alt,
                       ),
                     ),
                     Expanded(
@@ -100,6 +101,7 @@ class HomePage extends StatelessWidget {
                         title: 'Fats',
                         value: 0.7,
                         color: AppColors.fats,
+                        icon: Icons.water_drop,
                       ),
                     ),
                     Expanded(
@@ -109,6 +111,7 @@ class HomePage extends StatelessWidget {
                         title: 'Carbs',
                         value: 0.6,
                         color: AppColors.carbs,
+                        icon: Icons.cookie,
                       ),
                     ),
                   ],
