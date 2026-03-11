@@ -40,7 +40,7 @@ class RecentUploadWidget extends StatelessWidget {
         height: 125,
         margin: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
-          color: AppColors.tempgrey,
+          color: AppColors.orangeAccent,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
