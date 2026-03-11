@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mogulog/data/notifiers.dart';
-import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/views/pages/analytics_page.dart';
 import 'package:mogulog/views/pages/home_page.dart';
 import 'package:mogulog/views/pages/settings_page.dart';
