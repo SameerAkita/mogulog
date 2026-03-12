@@ -26,15 +26,15 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
           child: Column(
             children: [
               WeightWidget(),
-              SizedBox(height: 12),
-              CaloriesWidget(
-                calories: tempCalories,
-                goalCalories: tempGoalCalories,
-                caloriesPercentage: caloriesPercentage,
-              ),
+              // SizedBox(height: 12),
+              // CaloriesWidget(
+              //   calories: tempCalories,
+              //   goalCalories: tempGoalCalories,
+              //   caloriesPercentage: caloriesPercentage,
+              // ),
               SizedBox(height: 12),
               NutrientsWidget(),
-              SizedBox(height: 12),
+              // SizedBox(height: 12),
             ],
           ),
         ),
