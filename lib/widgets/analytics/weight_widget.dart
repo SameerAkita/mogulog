@@ -82,39 +82,12 @@ class _WeightWidgetState extends State<WeightWidget> {
   double get changeInRange => currentLogs.last - currentLogs.first;
 
   Future<void> addWeightLog() async {
-    final controller = TextEditingController();
     final value = await showDialog<double>(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: const Text('Add weight log'),
-          content: TextField(
-            controller: controller,
-            keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            decoration: const InputDecoration(
-              hintText: '70.8',
-              suffixText: 'kg',
-            ),
-            autofocus: true,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                final parsed = double.tryParse(controller.text.trim());
-                Navigator.pop(context, parsed);
-              },
-              child: const Text('Save'),
-            ),
-          ],
-        );
+        return const _AddWeightLogDialog();
       },
     );
-
-    controller.dispose();
 
     if (value == null) {
       return;
@@ -319,6 +292,49 @@ class _WeightWidgetState extends State<WeightWidget> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _AddWeightLogDialog extends StatefulWidget {
+  const _AddWeightLogDialog();
+
+  @override
+  State<_AddWeightLogDialog> createState() => _AddWeightLogDialogState();
+}
+
+class _AddWeightLogDialogState extends State<_AddWeightLogDialog> {
+  final TextEditingController controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Add weight log'),
+      content: TextField(
+        controller: controller,
+        keyboardType: const TextInputType.numberWithOptions(decimal: true),
+        decoration: const InputDecoration(hintText: '70.8', suffixText: 'kg'),
+        autofocus: true,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () {
+            final parsed = double.tryParse(controller.text.trim());
+            Navigator.pop(context, parsed);
+          },
+          child: const Text('Save'),
+        ),
+      ],
     );
   }
 }
