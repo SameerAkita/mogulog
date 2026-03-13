@@ -18,15 +18,16 @@ class WidgetTree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ValueListenableBuilder(
-        valueListenable: selectedPageNotifier,
-        builder: (builder, selectedPage, child) {
-          return pages.elementAt(selectedPage);
-        },
-      ),
+    return ValueListenableBuilder(
+      valueListenable: selectedPageNotifier,
+      builder: (context, selectedPage, child) {
+        final isUploadPage = selectedPage == 3;
 
-      bottomNavigationBar: NavbarWidget(),
+        return Scaffold(
+          body: pages.elementAt(selectedPage),
+          bottomNavigationBar: isUploadPage ? null : const NavbarWidget(),
+        );
+      },
     );
   }
 }
