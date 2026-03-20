@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:mogulog/data/daily_nutrition_data.dart';
 import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/settings/settings_widget.dart';
 
@@ -178,7 +179,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   String get nutritionSummary =>
-      '$effectiveCalories kcal • ${useAutomaticCalories ? 'Auto calories' : 'Manual calories'} • ${useAutomaticMacros ? 'Auto macros' : 'Manual macros'}';
+      '${DailyNutritionData.targetCalories} kcal • ${DailyNutritionData.targetProteinGrams}P / ${DailyNutritionData.targetFatsGrams}F / ${DailyNutritionData.targetCarbsGrams}C';
 
   @override
   Widget build(BuildContext context) {
@@ -266,32 +267,8 @@ class _SettingsPageState extends State<SettingsPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => NutritionTargetsPage(
-                                    recommendedCalories: recommendedCalories,
-                                    recommendedMacros: recommendedMacros,
-                                    effectiveCalories: effectiveCalories,
-                                    useAutomaticCalories: useAutomaticCalories,
-                                    useAutomaticMacros: useAutomaticMacros,
-                                    manualCalories: manualCalories,
-                                    manualProteinPercent: manualProteinPercent,
-                                    manualFatsPercent: manualFatsPercent,
-                                    onUseAutomaticCaloriesChanged: (value) =>
-                                        setState(
-                                          () => useAutomaticCalories = value,
-                                        ),
-                                    onUseAutomaticMacrosChanged: (value) =>
-                                        setState(
-                                          () => useAutomaticMacros = value,
-                                        ),
-                                    onManualCaloriesChanged: (value) =>
-                                        setState(() => manualCalories = value),
-                                    onManualMacrosChanged: (protein, fats) {
-                                      setState(() {
-                                        manualProteinPercent = protein;
-                                        manualFatsPercent = fats;
-                                      });
-                                    },
-                                  ),
+                                  builder: (context) =>
+                                      const NutritionTargetsPage(),
                                 ),
                               );
                             },
@@ -644,81 +621,24 @@ class _GoalSettingsPageState extends State<GoalSettingsPage> {
   }
 }
 
-class NutritionTargetsPage extends StatefulWidget {
-  final int recommendedCalories;
-  final MacroTargets recommendedMacros;
-  final int effectiveCalories;
-  final bool useAutomaticCalories;
-  final bool useAutomaticMacros;
-  final int manualCalories;
-  final double manualProteinPercent;
-  final double manualFatsPercent;
-  final ValueChanged<bool> onUseAutomaticCaloriesChanged;
-  final ValueChanged<bool> onUseAutomaticMacrosChanged;
-  final ValueChanged<int> onManualCaloriesChanged;
-  final void Function(double proteinPercent, double fatsPercent)
-  onManualMacrosChanged;
-
-  const NutritionTargetsPage({
-    super.key,
-    required this.recommendedCalories,
-    required this.recommendedMacros,
-    required this.effectiveCalories,
-    required this.useAutomaticCalories,
-    required this.useAutomaticMacros,
-    required this.manualCalories,
-    required this.manualProteinPercent,
-    required this.manualFatsPercent,
-    required this.onUseAutomaticCaloriesChanged,
-    required this.onUseAutomaticMacrosChanged,
-    required this.onManualCaloriesChanged,
-    required this.onManualMacrosChanged,
-  });
-
-  @override
-  State<NutritionTargetsPage> createState() => _NutritionTargetsPageState();
-}
-
-class _NutritionTargetsPageState extends State<NutritionTargetsPage> {
-  late bool useAutomaticCalories = widget.useAutomaticCalories;
-  late bool useAutomaticMacros = widget.useAutomaticMacros;
-  late int manualCalories = widget.manualCalories;
-  late double manualProteinPercent = widget.manualProteinPercent;
-  late double manualFatsPercent = widget.manualFatsPercent;
-
-  double get manualCarbsPercent =>
-      100 - manualProteinPercent - manualFatsPercent;
-
-  int gramsForPercent(double percent, int calories, int caloriesPerGram) {
-    return ((calories * (percent / 100)) / caloriesPerGram).round();
-  }
+class NutritionTargetsPage extends StatelessWidget {
+  const NutritionTargetsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final effectiveCalories = useAutomaticCalories
-        ? widget.recommendedCalories
-        : manualCalories;
-    final effectiveMacros = useAutomaticMacros
-        ? widget.recommendedMacros
-        : MacroTargets(
-            proteinPercent: manualProteinPercent,
-            fatsPercent: manualFatsPercent,
-            carbsPercent: manualCarbsPercent,
-          );
-
     return _SettingsScaffold(
       title: 'Nutrition Targets',
       child: ListView(
         children: [
           _SectionCard(
-            title: 'Recommended Targets',
+            title: 'Daily Targets',
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${widget.recommendedCalories} kcal/day',
+                    '${DailyNutritionData.targetCalories} kcal/day',
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
@@ -726,7 +646,7 @@ class _NutritionTargetsPageState extends State<NutritionTargetsPage> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Protein ${widget.recommendedMacros.proteinPercent.round()}% • Fats ${widget.recommendedMacros.fatsPercent.round()}% • Carbs ${widget.recommendedMacros.carbsPercent.round()}%',
+                    '${DailyNutritionData.targetProteinGrams}g protein • ${DailyNutritionData.targetFatsGrams}g fats • ${DailyNutritionData.targetCarbsGrams}g carbs',
                     style: const TextStyle(color: Colors.black54),
                   ),
                 ],
@@ -735,153 +655,14 @@ class _NutritionTargetsPageState extends State<NutritionTargetsPage> {
           ),
           const SizedBox(height: 12),
           _SectionCard(
-            title: 'Calories',
-            child: Column(
-              children: [
-                SwitchListTile(
-                  value: useAutomaticCalories,
-                  activeThumbColor: AppColors.orange,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                  title: const Text('Use recommended calories'),
-                  subtitle: const Text(
-                    'Turn off to manually set your calorie target',
-                  ),
-                  onChanged: (value) {
-                    setState(() => useAutomaticCalories = value);
-                    widget.onUseAutomaticCaloriesChanged(value);
-                  },
-                ),
-                if (!useAutomaticCalories) ...[
-                  const Divider(height: 1),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: _SliderSetting(
-                      label: 'Manual calorie target',
-                      valueLabel: '$manualCalories kcal',
-                      minLabel: '1200',
-                      maxLabel: '4200',
-                      value: manualCalories.toDouble(),
-                      min: 1200,
-                      max: 4200,
-                      divisions: 30,
-                      color: AppColors.orange,
-                      onChanged: (value) {
-                        setState(() => manualCalories = value.round());
-                        widget.onManualCaloriesChanged(value.round());
-                      },
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-          const SizedBox(height: 12),
-          _SectionCard(
-            title: 'Macro Balance',
-            child: Column(
-              children: [
-                SwitchListTile(
-                  value: useAutomaticMacros,
-                  activeThumbColor: AppColors.orange,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                  title: const Text('Use recommended macros'),
-                  subtitle: const Text(
-                    'Turn off to manually set protein, fats, and carbs',
-                  ),
-                  onChanged: (value) {
-                    setState(() => useAutomaticMacros = value);
-                    widget.onUseAutomaticMacrosChanged(value);
-                  },
-                ),
-                if (!useAutomaticMacros) ...[
-                  const Divider(height: 1),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        _PfcSummaryTile(
-                          label: 'Protein',
-                          color: AppColors.protein,
-                          percent: manualProteinPercent,
-                          grams: gramsForPercent(
-                            manualProteinPercent,
-                            effectiveCalories,
-                            4,
-                          ),
-                        ),
-                        Slider(
-                          value: manualProteinPercent,
-                          min: 10,
-                          max: 60,
-                          divisions: 50,
-                          activeColor: AppColors.protein,
-                          onChanged: (value) {
-                            final nextProtein = value
-                                .clamp(10, 100 - manualFatsPercent - 10)
-                                .toDouble();
-                            setState(() => manualProteinPercent = nextProtein);
-                            widget.onManualMacrosChanged(
-                              manualProteinPercent,
-                              manualFatsPercent,
-                            );
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        _PfcSummaryTile(
-                          label: 'Fats',
-                          color: AppColors.fats,
-                          percent: manualFatsPercent,
-                          grams: gramsForPercent(
-                            manualFatsPercent,
-                            effectiveCalories,
-                            9,
-                          ),
-                        ),
-                        Slider(
-                          value: manualFatsPercent,
-                          min: 10,
-                          max: 45,
-                          divisions: 35,
-                          activeColor: AppColors.fats,
-                          onChanged: (value) {
-                            final nextFats = value
-                                .clamp(10, 100 - manualProteinPercent - 10)
-                                .toDouble();
-                            setState(() => manualFatsPercent = nextFats);
-                            widget.onManualMacrosChanged(
-                              manualProteinPercent,
-                              manualFatsPercent,
-                            );
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        _PfcSummaryTile(
-                          label: 'Carbs',
-                          color: AppColors.carbs,
-                          percent: manualCarbsPercent,
-                          grams: gramsForPercent(
-                            manualCarbsPercent,
-                            effectiveCalories,
-                            4,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-          const SizedBox(height: 12),
-          _SectionCard(
-            title: 'Current Effective Targets',
+            title: 'Consumed Today',
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '$effectiveCalories kcal/day',
+                    '${DailyNutritionData.consumedCalories} kcal',
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
@@ -891,34 +672,56 @@ class _NutritionTargetsPageState extends State<NutritionTargetsPage> {
                   _PfcSummaryTile(
                     label: 'Protein',
                     color: AppColors.protein,
-                    percent: effectiveMacros.proteinPercent,
-                    grams: gramsForPercent(
-                      effectiveMacros.proteinPercent,
-                      effectiveCalories,
-                      4,
-                    ),
+                    grams: DailyNutritionData.consumedProteinGrams,
                   ),
                   const SizedBox(height: 8),
                   _PfcSummaryTile(
                     label: 'Fats',
                     color: AppColors.fats,
-                    percent: effectiveMacros.fatsPercent,
-                    grams: gramsForPercent(
-                      effectiveMacros.fatsPercent,
-                      effectiveCalories,
-                      9,
-                    ),
+                    grams: DailyNutritionData.consumedFatsGrams,
                   ),
                   const SizedBox(height: 8),
                   _PfcSummaryTile(
                     label: 'Carbs',
                     color: AppColors.carbs,
-                    percent: effectiveMacros.carbsPercent,
-                    grams: gramsForPercent(
-                      effectiveMacros.carbsPercent,
-                      effectiveCalories,
-                      4,
+                    grams: DailyNutritionData.consumedCarbsGrams,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          _SectionCard(
+            title: 'Remaining Today',
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${DailyNutritionData.caloriesLeft} kcal left',
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
                     ),
+                  ),
+                  const SizedBox(height: 10),
+                  _PfcSummaryTile(
+                    label: 'Protein',
+                    color: AppColors.protein,
+                    grams: DailyNutritionData.proteinLeft,
+                  ),
+                  const SizedBox(height: 8),
+                  _PfcSummaryTile(
+                    label: 'Fats',
+                    color: AppColors.fats,
+                    grams: DailyNutritionData.fatsLeft,
+                  ),
+                  const SizedBox(height: 8),
+                  _PfcSummaryTile(
+                    label: 'Carbs',
+                    color: AppColors.carbs,
+                    grams: DailyNutritionData.carbsLeft,
                   ),
                 ],
               ),
@@ -1393,13 +1196,11 @@ class _SliderSetting extends StatelessWidget {
 class _PfcSummaryTile extends StatelessWidget {
   final String label;
   final Color color;
-  final double percent;
   final int grams;
 
   const _PfcSummaryTile({
     required this.label,
     required this.color,
-    required this.percent,
     required this.grams,
   });
 
@@ -1419,10 +1220,7 @@ class _PfcSummaryTile extends StatelessWidget {
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
         ),
-        Text(
-          '${percent.round()}% • ${grams}g',
-          style: const TextStyle(color: Colors.black54),
-        ),
+        Text('${grams}g', style: const TextStyle(color: Colors.black54)),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/data/daily_nutrition_data.dart';
 import 'package:mogulog/theme/app_colors.dart';
 import 'package:mogulog/widgets/home/macro_widget.dart';
 import 'package:mogulog/widgets/home/recent_upload_widget.dart';
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '2270',
+                                  '${DailyNutritionData.caloriesLeft}',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w800,
                                     fontSize: 48,
@@ -74,7 +75,7 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(height: 12),
                         LinearProgressIndicator(
-                          value: 0.7,
+                          value: DailyNutritionData.calorieProgress,
                           color: AppColors.orange,
                           backgroundColor: AppColors.orangeAccent,
                           borderRadius: BorderRadius.circular(15),
@@ -93,9 +94,9 @@ class HomePage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: MacroWidget(
-                        amount: '50g',
+                        amount: '${DailyNutritionData.proteinLeft}g',
                         title: 'Protein',
-                        value: 0.8,
+                        value: DailyNutritionData.proteinProgress,
                         color: AppColors.protein,
                         icon: Icons.egg_alt,
                       ),
@@ -103,9 +104,9 @@ class HomePage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: MacroWidget(
-                        amount: '30g',
+                        amount: '${DailyNutritionData.fatsLeft}g',
                         title: 'Fats',
-                        value: 0.7,
+                        value: DailyNutritionData.fatsProgress,
                         color: AppColors.fats,
                         icon: Icons.water_drop,
                       ),
@@ -113,9 +114,9 @@ class HomePage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: MacroWidget(
-                        amount: '50g',
+                        amount: '${DailyNutritionData.carbsLeft}g',
                         title: 'Carbs',
-                        value: 0.6,
+                        value: DailyNutritionData.carbsProgress,
                         color: AppColors.carbs,
                         icon: Icons.cookie,
                       ),
