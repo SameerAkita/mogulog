@@ -112,15 +112,7 @@ class _AuthPageState extends State<AuthPage> {
                   ),
                 ),
                 const SizedBox(height: 22),
-                if (isSignUp) ...[
-                  _AuthField(
-                    controller: nameController,
-                    label: 'Name',
-                    hintText: 'Sameer',
-                    textInputAction: TextInputAction.next,
-                  ),
-                  const SizedBox(height: 14),
-                ],
+                if (isSignUp) ...[],
                 _AuthField(
                   controller: emailController,
                   label: 'Email',
