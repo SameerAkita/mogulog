@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mogulog/features/welcome/welcome_page.dart';
 import 'package:mogulog/theme/app_colors.dart';
-import 'package:mogulog/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
           displayColor: AppColors.darkbrown,
         ),
       ),
-      // home: WidgetTree(),
-      home: WidgetTree(),
+      home: const WelcomePage(),
     );
   }
 }
